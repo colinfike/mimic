@@ -42,4 +42,4 @@ for i := 0; i < 10; i++ {
 
 ## Limitations
 
-Currently this is in a limited v1.0 state. The only processing done on the input is downcasing everything. There could be undefined behavior with certain inputs. There is no weighting on how frequently a suffix occurs after a specific prefix, they are all weighted equal at the moment when generating a sentence.
+Currently this is in a limited v1.0 state. The only processing done on the input is downcasing everything. There could be undefined behavior with certain inputs. There is no weighting on how frequently a suffix occurs after a specific prefix, they are all weighted equal at the moment when generating a sentence. Currently delimited by spaces, not customizable at this time.
