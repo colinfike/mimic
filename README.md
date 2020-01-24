@@ -1,4 +1,6 @@
 # Mimic
+[![Documentation](https://godoc.org/github.com/colinfike/mimic?status.svg)](https://godoc.org/github.com/colinfike/mimic)
+
 This package exposes an easy to use interface to train Markov chains based on sentences you provide. You can generate sentences just as easily.
 
 ## Getting Started
