@@ -10,12 +10,13 @@ const delim string = " "
 
 // MarkovChain stores the markov chain and is the main interface into the package.
 type MarkovChain struct {
-	chain map[string]map[string]struct{}
+	chain    map[string]map[string]struct{}
+	minWords int
 }
 
-// NewMarkovChain returns a new MarkovChain
-func NewMarkovChain() *MarkovChain {
-	return &MarkovChain{chain: make(map[string]map[string]struct{})}
+// NewMarkovChain returns a new MarkovChain that ignores any sentence passed to it with less than <minWords> words
+func NewMarkovChain(minWords int) *MarkovChain {
+	return &MarkovChain{make(map[string]map[string]struct{}), minWords}
 }
 
 // Train consumes the trainingText and updates the Markov chain accordingly
@@ -26,6 +27,9 @@ func (m *MarkovChain) Train(trainingText []string) {
 		prefix = strings.Repeat(delim, 2)
 		sentence = strings.ToLower(sentence) + delim
 		words := strings.Split(sentence, delim)
+		if len(words) < m.minWords {
+			continue
+		}
 
 		for _, suffix = range words {
 			if suffixMap, ok := m.chain[prefix]; ok {
