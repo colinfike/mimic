@@ -11,10 +11,10 @@ Install Mimic
 go get github.com/colinfike/mimic
 ```
 
-Generate a new MarkovChain object.
+Generate a new MarkovChain object, passing in the minimum amount of words required in a training sentence for it to be processed.
 
 ```Go
-markov := mimic.NewMarkovChain()
+markov := mimic.NewMarkovChain(4)
 ```
 
 Train it with sentences.
