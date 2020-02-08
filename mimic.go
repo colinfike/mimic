@@ -25,11 +25,12 @@ func (m *MarkovChain) Train(trainingText []string) {
 
 	for _, sentence := range trainingText {
 		prefix = strings.Repeat(delim, 2)
-		sentence = strings.ToLower(sentence) + delim
+		sentence = strings.ToLower(sentence)
 		words := strings.Split(sentence, delim)
 		if len(words) < m.minWords {
 			continue
 		}
+		words = append(words, "")
 
 		for _, suffix = range words {
 			if suffixMap, ok := m.chain[prefix]; ok {
