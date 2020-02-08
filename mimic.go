@@ -66,7 +66,7 @@ func (m *MarkovChain) Generate() string {
 		sentence = sentence + delim + suffix
 		prefix = nextPrefix(prefix, suffix)
 	}
-	return sentence
+	return strings.TrimSpace(sentence)
 }
 
 func nextPrefix(prefix, suffix string) string {

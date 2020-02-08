@@ -86,6 +86,14 @@ func TestTrainThreeValid(t *testing.T) {
 	assert.Equal(t, markov.chain, expectedMap)
 }
 
+func TestGenerate(t *testing.T) {
+	markov := NewMarkovChain(2)
+	testSet := []string{"Hello there jon"}
+	markov.Train(testSet)
+
+	assert.Equal(t, "hello there jon", markov.Generate())
+}
+
 var nextSuffixTests = []struct {
 	prefix         string
 	suffix         string
